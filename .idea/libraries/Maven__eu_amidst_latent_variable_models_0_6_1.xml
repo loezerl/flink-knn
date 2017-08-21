@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.amidst:latent-variable-models:0.6.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/amidst/latent-variable-models/0.6.1/latent-variable-models-0.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/amidst/latent-variable-models/0.6.1/latent-variable-models-0.6.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/amidst/latent-variable-models/0.6.1/latent-variable-models-0.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

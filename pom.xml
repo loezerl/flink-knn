@@ -28,7 +28,12 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>amidstRepo</id>
+            <url>https://raw.github.com/amidst/toolbox/mvn-repo/</url>
+        </repository>
     </repositories>
+
 
     <!--
 
@@ -66,6 +71,13 @@
         <artifactId>flink-clients_2.10</artifactId>
         <version>${flink.version}</version>
     </dependency>
+
+        <dependency>
+            <groupId>eu.amidst</groupId>
+            <artifactId>module-all</artifactId>
+            <version>0.6.1</version>
+            <scope>compile</scope>
+        </dependency>
 
         <!-- explicitly add a standard loggin framework, as Flink does not (in the future) have
                 a hard dependency on one specific framework by default -->
