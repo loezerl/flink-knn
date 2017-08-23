@@ -6,14 +6,14 @@
 - Implementar estrutura do Experimenter.
 - Implementar os módulos do KNN.
 - Implementar os módulos do Prequential.
-
+- Descobrir como alterar os parametros de jobs, threads, clusters, etc..
 
 Pelo jeito não adiantou usar a lib para carregar os arquivos arff, tenho que dar um jeito de conseguir um `DataSet<Instance>` para realizar as outras operações.
 
 
 **Como carregar os arquivos arff grandes:**
 
-```
+```java
 
 ArffFileStream filess = new ArffFileStream("/home/loezerl-fworks/Downloads/kyoto.arff", 8);
 //
@@ -27,4 +27,5 @@ ArffFileStream filess = new ArffFileStream("/home/loezerl-fworks/Downloads/kyoto
 ```
 
 
-Descobrir o class index da base de kyoto
+Descobrir o class index da base de kyoto(-1)
+
