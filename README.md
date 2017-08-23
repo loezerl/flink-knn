@@ -2,6 +2,7 @@
 
 ### Notas:
 
-- Descobrir como alterar os parametros de jobs, threads, clusters, etc..
-- Class index da base de Kyoto = -1
+- Prequential: Popular a Matriz de Confusão.
+- Experimenter: Parser dos parametros.
+- Descrever as funcionalidades de cada função.
 
