@@ -1,6 +1,6 @@
 package classifiers;
 
-import weka.core.Instance;
+import com.yahoo.labs.samoa.instances.Instance;
 
 import java.util.ArrayList;
 import java.util.List;

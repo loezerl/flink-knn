@@ -3,7 +3,8 @@ package util;
 /**
  * Created by loezerl-fworks on 21/08/17.
  */
-import weka.core.Instance;
+
+import com.yahoo.labs.samoa.instances.Instance;
 
 
 public class Similarity {
