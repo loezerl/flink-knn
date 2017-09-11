@@ -9,8 +9,7 @@ import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.util.Collector;
 import util.Similarity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by loezerl-fworks on 21/08/17.
@@ -27,7 +26,7 @@ public class KNN extends Classifier {
         super(env);
         K = kdistance;
         WindowSize = wsize;
-        if(function == "euclidean"){
+        if(function.equals("euclidean")){
             DistanceFunction = "euclidean";
         }
         else{
@@ -63,26 +62,33 @@ public class KNN extends Classifier {
         //Pega os K vizinhos mais próximos
         List<Tuple2<Instance, Double>> K_neighbours = distances.first(K).collect();
 
-        int[] major_vote = new int[example_.classAttribute().numValues()];
+        Map majorvote = new HashMap<Double, Integer>();
 
-        for(Tuple2<Instance, Double> tuple : K_neighbours){
-            int aux = (int)tuple.f0.classValue();
-            major_vote[aux]++;
-        }
-
-        int bestclass_dist = -600;
-        int bestclass_label = -600;
-
-        for(int i=0; i< major_vote.length; i++){
-            if(major_vote[i] > bestclass_dist){
-                bestclass_label = i;
-                bestclass_dist = major_vote[i];
+        for (Tuple2<Instance, Double> tuple : K_neighbours){
+            if(majorvote.containsKey(tuple.f0.classValue())){
+                Integer aux = (Integer)majorvote.get(tuple.f0.classValue());
+                majorvote.put(tuple.f0.classValue(), aux + 1);
+            }else{
+                majorvote.put(tuple.f0.classValue(), 1);
             }
         }
 
-        int targetclass = (int)example.classValue();
+        Integer bestclass_vote = -600;
+        Double bestclass_label = -600.0;
 
-        if(targetclass == bestclass_label)
+        Iterator<Map.Entry<Double, Integer>> it = majorvote.entrySet().iterator();
+
+        while(it.hasNext()){
+            Map.Entry<Double, Integer> pair = it.next();
+            if(pair.getValue() > bestclass_vote){
+                bestclass_label = pair.getKey();
+                bestclass_vote = pair.getValue();
+            }
+        }
+
+        Double targetclass = example.classValue();
+
+        if(targetclass.equals(bestclass_label))
             return true;
 
         return false;

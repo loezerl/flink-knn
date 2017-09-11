@@ -19,10 +19,11 @@ public class Experimenter {
 
         env.setParallelism(10);
 
-        //"/home/loezerl-fworks/Downloads/kyoto.arff"
+        String DIABETES_DATABASE = "/home/loezerl-fworks/IdeaProjects/Experimenter/diabetes.arff";
+        String KYOTO_DATABASE = "/home/loezerl-fworks/Downloads/kyoto.arff";
 
         //descobrir class index da base de kyoto
-        ArffFileStream file = new ArffFileStream("/home/loezerl-fworks/IdeaProjects/Experimenter/diabetes.arff", -1);
+        ArffFileStream file = new ArffFileStream(KYOTO_DATABASE, -1);
 
         Classifier myClassifier = new KNN(7, 30, "euclidean", env);
         Evaluator myEvaluator = new Prequential(myClassifier, file);
