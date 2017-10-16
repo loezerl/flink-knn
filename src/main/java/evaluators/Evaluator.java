@@ -15,5 +15,5 @@ public class Evaluator {
         data_source = _data;
     }
 
-    public void run() throws Exception{}
+    public void run(long milliseconds) throws Exception{}
 }
